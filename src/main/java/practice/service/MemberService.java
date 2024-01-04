@@ -4,7 +4,7 @@ import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import practice.entity.Member;
-import practice.repository.MemberRepository;
+import practice.repository.member.MemberRepository;
 
 @Service
 @RequiredArgsConstructor

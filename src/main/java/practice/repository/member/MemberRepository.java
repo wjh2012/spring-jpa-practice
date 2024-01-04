@@ -1,4 +1,4 @@
-package practice.repository;
+package practice.repository.member;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

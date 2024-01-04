@@ -1,4 +1,4 @@
-package practice.repository;
+package practice.repository.member;
 
 public interface MemberRepositoryCustom {
 

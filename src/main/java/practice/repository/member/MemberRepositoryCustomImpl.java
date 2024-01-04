@@ -1,6 +1,4 @@
-package practice.repository;
-
-import org.springframework.stereotype.Repository;
+package practice.repository.member;
 
 public class MemberRepositoryCustomImpl implements MemberRepositoryCustom{
     
