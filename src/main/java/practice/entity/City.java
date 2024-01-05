@@ -12,6 +12,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 
 @Getter
 @Setter
@@ -27,5 +28,6 @@ public class City {
     private String name;
     @OneToMany
     @JoinColumn(name="CITY_ID")
+    @BatchSize(size = 100)
     private List<District> districts;
 }
