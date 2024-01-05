@@ -1,11 +1,14 @@
-package practice.entity;
+package practice.entity.country;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,14 +23,20 @@ import org.hibernate.annotations.BatchSize;
 @AllArgsConstructor
 @Builder
 @Entity
-public class District {
+public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany
-    @JoinColumn(name="TOWN_ID")
-    @BatchSize(size = 100)
-    private List<Town> towns;
+
+    @ManyToOne
+    @JoinColumn(name = "COUNTRY_ID")
+    private Country country;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CITY_ID")
+    @BatchSize(size = 500)
+    @Builder.Default
+    private List<District> districts = new ArrayList<>();
 }

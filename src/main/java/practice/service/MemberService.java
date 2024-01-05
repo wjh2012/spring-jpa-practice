@@ -3,7 +3,7 @@ package practice.service;
 import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import practice.entity.Member;
+import practice.entity.member.Member;
 import practice.repository.member.MemberRepository;
 
 @Service

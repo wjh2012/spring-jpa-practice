@@ -1,7 +1,9 @@
-package practice.entity;
+package practice.entity.country;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,20 +16,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.BatchSize;
 
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-public class City {
+public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany
-    @JoinColumn(name="CITY_ID")
-    @BatchSize(size = 100)
-    private List<District> districts;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "COUNTRY_ID")
+    @BatchSize(size = 500)
+    @Builder.Default
+    private List<City> cities = new ArrayList<>();
 }

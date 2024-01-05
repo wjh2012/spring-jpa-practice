@@ -1,9 +1,11 @@
-package practice.entity;
+package practice.entity.country;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,9 +18,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Member {
+public class Town {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "DISTRICT_ID")
+    private District district;
 }

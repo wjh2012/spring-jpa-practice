@@ -16,10 +16,6 @@ public class MemberController {
     public void createMember() {
         memberService.joinMember();
     }
-    @GetMapping("/memberQuery")
-    public void memberQuery() {
-        memberQuery.test();
-    }
     
     
 }

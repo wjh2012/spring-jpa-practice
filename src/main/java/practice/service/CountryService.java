@@ -2,10 +2,10 @@ package practice.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import practice.entity.City;
-import practice.entity.Country;
-import practice.entity.District;
-import practice.entity.Town;
+import practice.entity.country.City;
+import practice.entity.country.Country;
+import practice.entity.country.District;
+import practice.entity.country.Town;
 import practice.repository.Country.CityRepository;
 import practice.repository.Country.CountryRepository;
 import practice.repository.Country.DistrictRepository;

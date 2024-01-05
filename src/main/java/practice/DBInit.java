@@ -5,10 +5,10 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import practice.entity.City;
-import practice.entity.Country;
-import practice.entity.District;
-import practice.entity.Town;
+import practice.entity.country.City;
+import practice.entity.country.Country;
+import practice.entity.country.District;
+import practice.entity.country.Town;
 import practice.service.CountryService;
 
 @Component
