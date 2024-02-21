@@ -8,7 +8,7 @@ group = 'org.example'
 version = '1.0-SNAPSHOT'
 
 java {
-    sourceCompatibility = '1.8'
+    sourceCompatibility = '11'
 }
 
 configurations {
@@ -27,7 +27,7 @@ dependencies {
 
 //    implementation 'org.flywaydb:flyway-core'
 //    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    
+
     // QueryDsl
     implementation 'com.querydsl:querydsl-jpa:5.0.0'
     annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jpa"
@@ -36,12 +36,12 @@ dependencies {
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.h2database:h2'
-    
+
     compileOnly 'org.projectlombok:lombok'
 
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
-    
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
