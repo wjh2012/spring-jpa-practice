@@ -9,6 +9,8 @@ import practice.entity.country.City;
 import practice.entity.country.Country;
 import practice.entity.country.District;
 import practice.entity.country.Town;
+import practice.entity.uuid.Umember;
+import practice.repository.Umember.UmemberRepository;
 import practice.service.CountryService;
 
 @Component
@@ -16,7 +18,8 @@ import practice.service.CountryService;
 public class DBInit {
 
     private final CountryService countryService;
-    
+    private final UmemberRepository umemberRepository;
+
     @PostConstruct
     public void init() {
         saveSampleData();
@@ -27,7 +30,7 @@ public class DBInit {
         List<Town> towns = new ArrayList<>();
         List<District> districts = new ArrayList<>();
         List<City> cities = new ArrayList<>();
-        
+
         for(int i=0; i<84; i++){
             Town t = new Town();
             t.setName("Town"+(i+1));
@@ -50,7 +53,7 @@ public class DBInit {
             cities.add(t);
             countryService.saveCity(t);
         }
-        
+
         for(int i=0; i<3; i++){
             Country t = new Country();
             t.setName("Country"+(i+1));
@@ -58,5 +61,7 @@ public class DBInit {
             countryService.saveCountry(t);
         }
 
+        Umember umember = new Umember();
+        umemberRepository.save(umember);
     }
 }

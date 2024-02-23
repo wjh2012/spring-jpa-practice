@@ -26,7 +26,7 @@ import org.hibernate.annotations.BatchSize;
 public class Country {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
     @OneToMany(fetch = FetchType.LAZY)

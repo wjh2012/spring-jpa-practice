@@ -26,14 +26,14 @@ import org.hibernate.annotations.BatchSize;
 public class District {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
 
     @ManyToOne
     @JoinColumn(name = "CITY_ID")
     private City city;
-    
+
     @OneToMany(fetch= FetchType.LAZY)
     @JoinColumn(name="TOWN_ID")
     @BatchSize(size = 500)
