@@ -5,13 +5,13 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import practice.entity.country.City;
-import practice.entity.country.Country;
-import practice.entity.country.District;
-import practice.entity.country.Town;
-import practice.entity.uuid.Umember;
-import practice.repository.Umember.UmemberRepository;
-import practice.service.CountryService;
+import practice.jpa.entity.country.City;
+import practice.jpa.entity.country.Country;
+import practice.jpa.entity.country.District;
+import practice.jpa.entity.country.Town;
+import practice.jpa.entity.uuid.Umember;
+import practice.jpa.repository.Umember.UmemberRepository;
+import practice.jpa.service.CountryService;
 
 @Component
 @RequiredArgsConstructor
