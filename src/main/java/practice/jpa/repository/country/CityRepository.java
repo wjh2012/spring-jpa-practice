@@ -1,4 +1,4 @@
-package practice.jpa.repository.Country;
+package practice.jpa.repository.country;
 
 import org.springframework.data.repository.CrudRepository;
 import practice.jpa.entity.country.City;

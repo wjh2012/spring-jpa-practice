@@ -6,10 +6,10 @@ import practice.jpa.entity.country.City;
 import practice.jpa.entity.country.Country;
 import practice.jpa.entity.country.District;
 import practice.jpa.entity.country.Town;
-import practice.jpa.repository.Country.CityRepository;
-import practice.jpa.repository.Country.CountryRepository;
-import practice.jpa.repository.Country.DistrictRepository;
-import practice.jpa.repository.Country.TownRepository;
+import practice.jpa.repository.country.CityRepository;
+import practice.jpa.repository.country.CountryRepository;
+import practice.jpa.repository.country.DistrictRepository;
+import practice.jpa.repository.country.TownRepository;
 
 @Service
 @RequiredArgsConstructor

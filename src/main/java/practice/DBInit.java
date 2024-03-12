@@ -9,8 +9,8 @@ import practice.jpa.entity.country.City;
 import practice.jpa.entity.country.Country;
 import practice.jpa.entity.country.District;
 import practice.jpa.entity.country.Town;
-import practice.jpa.entity.uuid.Umember;
-import practice.jpa.repository.Umember.UmemberRepository;
+import practice.jpa.entity.uuid.UUIDMember;
+import practice.jpa.repository.UUIDMember.UUIDMemberRepository;
 import practice.jpa.service.CountryService;
 
 @Component
@@ -18,7 +18,7 @@ import practice.jpa.service.CountryService;
 public class DBInit {
 
     private final CountryService countryService;
-    private final UmemberRepository umemberRepository;
+    private final UUIDMemberRepository UUIDMemberRepository;
 
     @PostConstruct
     public void init() {
@@ -61,7 +61,7 @@ public class DBInit {
             countryService.saveCountry(t);
         }
 
-        Umember umember = new Umember();
-        umemberRepository.save(umember);
+        UUIDMember UUIDMember = new UUIDMember();
+        UUIDMemberRepository.save(UUIDMember);
     }
 }
