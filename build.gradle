@@ -41,8 +41,8 @@ dependencies {
     implementation group: 'org.jsoup', name: 'jsoup', version: '1.17.2'
 
     // itext
-    implementation 'com.itextpdf:itext-core:8.0.2'
-    implementation 'com.itextpdf:bouncy-castle-adapter:8.0.2'
+//    implementation 'com.itextpdf:itext-core:8.0.2'
+//    implementation 'com.itextpdf:bouncy-castle-adapter:8.0.2'
 
     // h2
     runtimeOnly 'com.h2database:h2'

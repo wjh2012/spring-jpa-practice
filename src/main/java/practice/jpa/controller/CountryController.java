@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import practice.jpa.query.CountryQuery;
 
-@RestController
+@RestController("country")
 @RequiredArgsConstructor
 public class CountryController {
 
