@@ -1,6 +1,7 @@
 package practice.jpa;
 
 import java.util.Optional;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
@@ -9,10 +10,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import practice.jpa.entity.member.Member;
-import practice.jpa.entity.uuid.UUIDMember;
-import practice.jpa.repository.UUIDMember.UUIDMemberRepository;
-import practice.jpa.repository.member.MemberRepository;
+import practice.jpa.basic.entity.member.Member;
+import practice.jpa.basic.entity.uuid.UUIDMember;
+import practice.jpa.basic.repository.UUIDMember.UUIDMemberRepository;
+import practice.jpa.basic.repository.member.MemberRepository;
 
 @DisplayName("JPA 엔티티 동등성 테스트")
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
