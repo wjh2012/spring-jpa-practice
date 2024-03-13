@@ -1,4 +1,4 @@
-package practice.jpa.mappingOwner.ManyToOne;
+package practice.jpa.mapping.oneway.ManyToOne;
 
 import lombok.*;
 
@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Builder
 @Entity
-public class MMember {
+public class TeamA {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

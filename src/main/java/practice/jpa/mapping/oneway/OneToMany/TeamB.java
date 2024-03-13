@@ -1,0 +1,27 @@
+package practice.jpa.mapping.oneway.OneToMany;
+
+import lombok.*;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+public class TeamB {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+
+    @OneToMany
+    @JoinColumn(name="TEAMB_ID")
+    @Builder.Default
+    private List<MemberB> memberBs = new ArrayList<>();
+
+}
+

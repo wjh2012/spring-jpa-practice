@@ -1,10 +1,8 @@
-package practice.jpa.mappingOwner.ManyToOne;
+package practice.jpa.mapping.twoway.ManyToOne;
 
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -12,16 +10,12 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-public class MTeam {
+public class MemberC {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
-    @Column
-    @OneToMany
-    @Builder.Default
-    private List<MMember> mMembers = new ArrayList<>();
-
+    @ManyToOne
+    private TeamC teamC;
 }
-
