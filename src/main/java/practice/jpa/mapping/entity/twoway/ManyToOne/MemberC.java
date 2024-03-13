@@ -1,4 +1,4 @@
-package practice.jpa.mapping.oneway.ManyToOne;
+package practice.jpa.mapping.entity.twoway.ManyToOne;
 
 import lombok.*;
 
@@ -10,12 +10,12 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class MemberA {
+public class MemberC {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
     @ManyToOne
-    private TeamA teamA;
+    private TeamC teamC;
 }

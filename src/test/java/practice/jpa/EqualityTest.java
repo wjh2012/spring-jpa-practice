@@ -28,7 +28,7 @@ public class EqualityTest {
 
 
     @Test
-    void 저장_조회_시_엔티티_불일치_테스트() {
+    void 저장_조회_시_엔티티_불일치() {
         // given
         final String name = "testMember";
 
@@ -46,7 +46,7 @@ public class EqualityTest {
 
     @Test
     @Transactional
-    void Transactional_저장_조회_시_엔티티_일치_테스트() {
+    void Transactional_저장_조회_시_엔티티_일치() {
         // given
         final String name = "testMember2";
 
@@ -64,7 +64,7 @@ public class EqualityTest {
 
 
     @Test
-    void Transactional_EqualsAndHashCode_저장_조회_시_엔티티_일치_테스트() {
+    void Transactional_EqualsAndHashCode_저장_조회_시_엔티티_일치() {
         // given
         final String username = "uuidMember1";
 

@@ -1,4 +1,4 @@
-package practice.jpa.mapping.twoway.OneToMany;
+package practice.jpa.mapping.entity.twoway.OneToMany;
 
 import lombok.*;
 

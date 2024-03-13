@@ -1,4 +1,4 @@
-package practice.jpa.mapping.oneway.OneToMany;
+package practice.jpa.mapping.entity.twoway.ManyToOne;
 
 import lombok.*;
 
@@ -12,16 +12,15 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-public class TeamB {
+public class TeamC {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
-    @OneToMany
-    @JoinColumn(name="TEAMB_ID")
+    @OneToMany(mappedBy = "teamC") // 주의! 다(many) 쪽의 변수명을 정확히 적어야함
     @Builder.Default
-    private List<MemberB> memberBs = new ArrayList<>();
+    private List<MemberC> memberCs = new ArrayList<>();
 
 }
 

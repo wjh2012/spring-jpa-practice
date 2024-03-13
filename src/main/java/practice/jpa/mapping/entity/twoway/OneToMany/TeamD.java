@@ -1,7 +1,6 @@
-package practice.jpa.mapping.twoway.OneToMany;
+package practice.jpa.mapping.entity.twoway.OneToMany;
 
 import lombok.*;
-import practice.jpa.mapping.twoway.ManyToOne.MemberC;
 
 import javax.persistence.*;
 import java.util.ArrayList;
