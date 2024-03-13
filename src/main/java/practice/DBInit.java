@@ -23,10 +23,10 @@ public class DBInit {
 
     @PostConstruct
     public void init() {
-        saveSampleData();
+//        saveSampleCountry();
     }
 
-    private void saveSampleData() {
+    private void saveSampleCountry() {
 
         List<Town> towns = new ArrayList<>();
         List<District> districts = new ArrayList<>();
