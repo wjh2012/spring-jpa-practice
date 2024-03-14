@@ -1,17 +1,31 @@
 package practice.websocket;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
+import practice.websocket.model.message.Action;
+import practice.websocket.model.message.SocketBody;
+import practice.websocket.model.message.SocketHeader;
+import practice.websocket.model.message.SocketProtocol;
+import practice.websocket.service.MessageManager;
+import practice.websocket.service.RoomManager;
 
-import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
+@RequiredArgsConstructor
 public class WebSocketHandler extends TextWebSocketHandler {
-    private static final ConcurrentHashMap<String, WebSocketSession> CLIENTS = new ConcurrentHashMap<String, WebSocketSession>();
+
+    // 모든 클라이언트를 저장한다.
+    private static final ConcurrentHashMap<String, WebSocketSession> CLIENTS = new ConcurrentHashMap<>();
+
+    private final RoomManager roomManager;
+    private final MessageManager messageManager;
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
@@ -21,21 +35,44 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-        CLIENTS.remove(session.getId());
+        String sessionId = session.getId();
+        roomManager.removeSession(session);
+        CLIENTS.remove(sessionId);
+
         System.out.println("removed: " + session.getId());
     }
 
     @Override
-    protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-        String id = session.getId();  //메시지를 보낸 아이디
-        CLIENTS.entrySet().forEach(arg -> {
-            if (!arg.getKey().equals(id)) {  //같은 아이디가 아니면 메시지를 전달합니다.
-                try {
-                    arg.getValue().sendMessage(message);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+    protected void handleTextMessage(WebSocketSession session, TextMessage textMessage) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        SocketProtocol webSocketSocketProtocol = mapper.readValue(textMessage.getPayload(), SocketProtocol.class);
+        System.out.println(webSocketSocketProtocol.toString());
+
+        SocketHeader socketHeader = webSocketSocketProtocol.getSocketHeader();
+        SocketBody socketBody = webSocketSocketProtocol.getSocketBody();
+
+        Action action = socketHeader.getAction();
+        String roomId = socketBody.getRoomId();
+        String author = socketBody.getAuthor();
+        String message = socketBody.getMessage();
+
+        List<WebSocketSession> sessions;
+        switch (action) {
+            case JOIN:
+                roomManager.putSession(session, roomId);
+                sessions = roomManager.getAllSessionInRoom(roomId);
+                messageManager.roomBroadCastSystemMessage("님이 접속하였습니다.", sessions);
+                break;
+            case EXIT:
+                roomManager.removeSession(session);
+                sessions = roomManager.getAllSessionInRoom(roomId);
+                messageManager.roomBroadCastSystemMessage("님이 종료하였습니다.", sessions);
+                break;
+            case MESSAGE:
+                sessions = roomManager.getAllSessionInRoom(roomId);
+                sessions.remove(session);
+                messageManager.roomBroadCastUserMessage(session, message, sessions);
+        }
     }
+
 }

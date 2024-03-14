@@ -23,7 +23,7 @@ public class DBInit {
 
     @PostConstruct
     public void init() {
-        saveSampleData();
+//        saveSampleData();
     }
 
     private void saveSampleData() {
