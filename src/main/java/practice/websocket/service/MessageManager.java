@@ -52,6 +52,7 @@ public class MessageManager {
         socketHeader.setAction(Action.MESSAGE);
         socketHeader.setSend("server");
         socketHeader.setReceive("client");
+        socketProtocol.setSocketHeader(socketHeader);
 
         // set body
         SocketBody socketBody = new SocketBody();

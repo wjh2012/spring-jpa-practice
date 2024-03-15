@@ -36,8 +36,11 @@ public class WebSocketHandler extends TextWebSocketHandler {
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
         String sessionId = session.getId();
-        roomManager.removeSession(session);
+        String roomId = roomManager.removeSession(session);
         CLIENTS.remove(sessionId);
+
+        List<WebSocketSession> sessions = roomManager.getAllSessionInRoom(roomId);
+        messageManager.roomBroadCastSystemMessage(sessionId + "님이 종료하였습니다.", sessions);
 
         System.out.println("removed: " + session.getId());
     }
@@ -61,12 +64,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
             case JOIN:
                 roomManager.putSession(session, roomId);
                 sessions = roomManager.getAllSessionInRoom(roomId);
-                messageManager.roomBroadCastSystemMessage("님이 접속하였습니다.", sessions);
-                break;
-            case EXIT:
-                roomManager.removeSession(session);
-                sessions = roomManager.getAllSessionInRoom(roomId);
-                messageManager.roomBroadCastSystemMessage("님이 종료하였습니다.", sessions);
+                messageManager.roomBroadCastSystemMessage(session.getId() + "님이 접속하였습니다.", sessions);
                 break;
             case MESSAGE:
                 sessions = roomManager.getAllSessionInRoom(roomId);

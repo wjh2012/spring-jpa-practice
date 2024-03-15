@@ -25,7 +25,7 @@ public class RoomManager {
         return new ArrayList<>(sessions.values());
     }
 
-    public void removeSession(WebSocketSession session) {
+    public String removeSession(WebSocketSession session) {
         String sessionId = session.getId();
         String roomId = this.roomMap.get(sessionId);
         Room room = this.rooms.get(roomId);
@@ -33,9 +33,11 @@ public class RoomManager {
 
         sessions.remove(sessionId);
         roomMap.remove(sessionId);
+
+        return roomId;
     }
 
-    public void putSession(WebSocketSession session, String roomId) {
+    public String putSession(WebSocketSession session, String roomId) {
         String sessionId = session.getId();
         Room room;
         if (this.rooms.containsKey(roomId)) {
@@ -43,9 +45,12 @@ public class RoomManager {
         } else {
             room = new Room();
             room.setRoomId(roomId);
+            rooms.put(roomId, room);
         }
         room.getSessions().put(sessionId, session);
         roomMap.put(sessionId, roomId);
+
+        return roomId;
     }
 
 }
