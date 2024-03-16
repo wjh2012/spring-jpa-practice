@@ -21,5 +21,5 @@ public class Twoway_Team_Master {
     @OneToMany
     @JoinColumn(name = "TEAMD_ID")
     @Builder.Default
-    private List<Twoway__Member_Slave> twowayMemberSlaves = new ArrayList<>();
+    private List<Twoway_Member_Slave> twowayMemberSlaves = new ArrayList<>();
 }

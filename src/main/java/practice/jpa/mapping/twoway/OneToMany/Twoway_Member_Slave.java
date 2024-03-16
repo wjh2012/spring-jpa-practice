@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Twoway__Member_Slave {
+public class Twoway_Member_Slave {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
