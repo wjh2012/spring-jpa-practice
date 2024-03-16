@@ -1,4 +1,4 @@
-package practice.jpa.mapping.entity.twoway.OneToMany;
+package practice.jpa.mapping.oneway.OneToMany;
 
 import lombok.*;
 
@@ -12,14 +12,16 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-public class TeamD {
+public class Oneway_Team_Master {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
     @OneToMany
-    @JoinColumn(name="TEAMD_ID")
+    @JoinColumn(name = "TEAM_ID")
     @Builder.Default
-    private List<MemberD> memberDs  = new ArrayList<>();
+    private List<Oneway_Member_Slave> onewayMemberSlaves = new ArrayList<>();
+
 }
+
