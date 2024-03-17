@@ -26,7 +26,8 @@ public class OnewayMappingTest {
 
     @Test
     @Order(1)
-    void many_주인_INSERT() {
+    @DisplayName("N이 주인일 때")
+    void MANY_MASTER_INSERT() {
         // given
         Oneway_Team_Slave team1 = new Oneway_Team_Slave();
         team1.setName("team_name1");
@@ -34,11 +35,11 @@ public class OnewayMappingTest {
         team2.setName("team_name2");
 
         Oneway_Member_Master member1 = new Oneway_Member_Master();
-        team1.setName("member1_name");
+        member1.setName("member1_name");
         Oneway_Member_Master member2 = new Oneway_Member_Master();
-        team1.setName("member2_name");
+        member2.setName("member2_name");
         Oneway_Member_Master member3 = new Oneway_Member_Master();
-        team1.setName("member3_name");
+        member3.setName("member3_name");
         // when
         member1.setTeam(team1);
         member2.setTeam(team1);
@@ -53,7 +54,8 @@ public class OnewayMappingTest {
 
     @Test
     @Order(2)
-    void one_주인_INSERT() {
+    @DisplayName("1이 주인일 때")
+    void ONE_MASTER_INSERT() {
         // given
         Oneway_Team_Master team1 = new Oneway_Team_Master();
         team1.setName("team_name1");
@@ -61,11 +63,11 @@ public class OnewayMappingTest {
         team2.setName("team_name2");
 
         Oneway_Member_Slave member1 = new Oneway_Member_Slave();
-        team1.setName("member1_name");
+        member1.setName("member1_name");
         Oneway_Member_Slave member2 = new Oneway_Member_Slave();
-        team1.setName("member2_name");
+        member2.setName("member2_name");
         Oneway_Member_Slave member3 = new Oneway_Member_Slave();
-        team1.setName("member3_name");
+        member3.setName("member3_name");
 
         // when
         team1.getMembers().add(member1);
@@ -81,7 +83,7 @@ public class OnewayMappingTest {
 
     @Test
     @Order(3)
-    void many_주인_SELECT() {
+    void MANY_MASTER_SELECT() {
         em.find(Oneway_Team_Slave.class, 1L);
 
         em.find(Oneway_Member_Master.class, 1L);
@@ -91,7 +93,7 @@ public class OnewayMappingTest {
 
     @Test
     @Order(4)
-    void one_주인_SELECT() {
+    void ONE_MASTER_SELECT() {
         em.find(Oneway_Team_Master.class, 1L);
 
         em.find(Oneway_Member_Slave.class, 1L);
@@ -101,7 +103,7 @@ public class OnewayMappingTest {
 
     @Test
     @Order(5)
-    void many_주인_team_UPDATE() {
+    void MANY_MASTER_UPDATE() {
         Oneway_Team_Slave team = em.find(Oneway_Team_Slave.class, 1L);
 
         em.find(Oneway_Member_Master.class, 1L);
@@ -113,7 +115,7 @@ public class OnewayMappingTest {
 
     @Test
     @Order(6)
-    void one_주인_team_UPDATE() {
+    void ONE_MASTER_UPDATE() {
         Oneway_Team_Master team = em.find(Oneway_Team_Master.class, 1L);
 
         em.find(Oneway_Member_Slave.class, 1L);
