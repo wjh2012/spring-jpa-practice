@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import practice.jpa.basic.entity.member.Member;
 import practice.jpa.basic.entity.uuid.UUIDMember;
@@ -25,7 +26,6 @@ public class EqualityTest {
 
     @Autowired
     UUIDMemberRepository uuidMemberRepository;
-
 
     @Test
     void 저장_조회_시_엔티티_불일치() {
