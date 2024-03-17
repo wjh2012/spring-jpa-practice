@@ -26,7 +26,7 @@ public class OnewayMappingTest {
 
     @Test
     @Order(1)
-    @DisplayName("N이 주인일 때")
+    @DisplayName("N이 주인일 때 insert")
     void MANY_MASTER_INSERT() {
         // given
         Oneway_Team_Slave team1 = new Oneway_Team_Slave();
@@ -54,7 +54,7 @@ public class OnewayMappingTest {
 
     @Test
     @Order(2)
-    @DisplayName("1이 주인일 때")
+    @DisplayName("1이 주인일 때 insert")
     void ONE_MASTER_INSERT() {
         // given
         Oneway_Team_Master team1 = new Oneway_Team_Master();

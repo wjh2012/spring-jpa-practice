@@ -17,5 +17,6 @@ public class Twoway_Member_Slave {
     private String name;
 
     @ManyToOne
+    @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false)
     private Twoway_Team_Master team;
 }
