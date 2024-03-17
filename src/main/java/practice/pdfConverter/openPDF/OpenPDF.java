@@ -1,12 +1,13 @@
 package practice.pdfConverter.openPDF;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.xhtmlrenderer.pdf.ITextRenderer;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.xhtmlrenderer.pdf.ITextRenderer;
 
 public class OpenPDF {
 
@@ -32,7 +33,7 @@ public class OpenPDF {
     private Document createWellFormedHtml(File inputHTML) throws IOException {
         Document document = Jsoup.parse(inputHTML);
         document.outputSettings()
-            .syntax(Document.OutputSettings.Syntax.xml);
+                .syntax(Document.OutputSettings.Syntax.xml);
         return document;
     }
 

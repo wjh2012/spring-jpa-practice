@@ -17,5 +17,5 @@ public class Twoway_Member_Slave {
     private String name;
 
     @ManyToOne
-    private Twoway_Team_Master twowayTeamMaster;
+    private Twoway_Team_Master team;
 }

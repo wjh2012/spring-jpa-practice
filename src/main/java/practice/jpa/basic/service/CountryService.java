@@ -6,8 +6,8 @@ import practice.jpa.basic.entity.country.City;
 import practice.jpa.basic.entity.country.Country;
 import practice.jpa.basic.entity.country.District;
 import practice.jpa.basic.entity.country.Town;
-import practice.jpa.basic.repository.country.CountryRepository;
 import practice.jpa.basic.repository.country.CityRepository;
+import practice.jpa.basic.repository.country.CountryRepository;
 import practice.jpa.basic.repository.country.DistrictRepository;
 import practice.jpa.basic.repository.country.TownRepository;
 

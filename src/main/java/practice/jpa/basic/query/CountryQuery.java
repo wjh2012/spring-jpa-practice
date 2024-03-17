@@ -2,15 +2,14 @@ package practice.jpa.basic.query;
 
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
-
-import java.util.List;
-import java.util.stream.Collectors;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 import org.springframework.stereotype.Repository;
 import practice.jpa.basic.entity.country.City;
 import practice.jpa.basic.entity.country.Country;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static practice.jpa.basic.entity.country.QCity.city;
 import static practice.jpa.basic.entity.country.QCountry.country;

@@ -1,9 +1,5 @@
 package practice;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.PostConstruct;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import practice.jpa.basic.entity.country.City;
@@ -13,6 +9,10 @@ import practice.jpa.basic.entity.country.Town;
 import practice.jpa.basic.entity.uuid.UUIDMember;
 import practice.jpa.basic.repository.UUIDMember.UUIDMemberRepository;
 import practice.jpa.basic.service.CountryService;
+
+import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor

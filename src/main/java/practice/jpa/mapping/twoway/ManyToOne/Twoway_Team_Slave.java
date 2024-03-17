@@ -18,9 +18,9 @@ public class Twoway_Team_Slave {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "twowayTeamSlave") // 주의! 다(many) 쪽의 변수명을 정확히 적어야함
+    @OneToMany(mappedBy = "team") // 주의! 다(many) 쪽의 변수명을 정확히 적어야함
     @Builder.Default
-    private List<Twoway_Member_Master> twowayMemberMasters = new ArrayList<>();
+    private List<Twoway_Member_Master> members = new ArrayList<>();
 
 }
 
