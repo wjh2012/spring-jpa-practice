@@ -19,7 +19,7 @@ public class Twoway_Team_Master {
     private String name;
 
     @OneToMany
-    @JoinColumn(name = "TEAMD_ID")
+    @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false)
     @Builder.Default
     private List<Twoway_Member_Slave> members = new ArrayList<>();
 }
