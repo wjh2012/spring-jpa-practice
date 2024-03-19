@@ -44,12 +44,12 @@ public class MessageManager {
         });
     }
 
-    public void roomBroadCastUserMessage(WebSocketSession session, String message, List<WebSocketSession> targets) throws JsonProcessingException {
+    public void roomBroadCastUserMessage(WebSocketSession session, Action action, Object message, List<WebSocketSession> targets) throws JsonProcessingException {
         SocketProtocol socketProtocol = new SocketProtocol();
 
         // set header
         SocketHeader socketHeader = new SocketHeader();
-        socketHeader.setAction(Action.MESSAGE);
+        socketHeader.setAction(action);
         socketHeader.setSend("server");
         socketHeader.setReceive("client");
         socketProtocol.setSocketHeader(socketHeader);

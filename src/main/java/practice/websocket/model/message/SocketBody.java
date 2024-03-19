@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class SocketBody {
     private String author;
     private String roomId;
-    private String message;
+    private Object message;
 }

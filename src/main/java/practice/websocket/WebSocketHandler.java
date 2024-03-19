@@ -57,7 +57,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
         Action action = socketHeader.getAction();
         String roomId = socketBody.getRoomId();
         String author = socketBody.getAuthor();
-        String message = socketBody.getMessage();
+        Object message = socketBody.getMessage();
 
         List<WebSocketSession> sessions;
         switch (action) {
@@ -69,7 +69,22 @@ public class WebSocketHandler extends TextWebSocketHandler {
             case MESSAGE:
                 sessions = roomManager.getAllSessionInRoom(roomId);
                 sessions.remove(session);
-                messageManager.roomBroadCastUserMessage(session, message, sessions);
+                messageManager.roomBroadCastUserMessage(session, Action.MESSAGE, message, sessions);
+                break;
+            case SIGN:
+                sessions = roomManager.getAllSessionInRoom(roomId);
+                sessions.remove(session);
+                messageManager.roomBroadCastUserMessage(session, Action.SIGN, message, sessions);
+                break;
+            case HTML:
+                sessions = roomManager.getAllSessionInRoom(roomId);
+                sessions.remove(session);
+                messageManager.roomBroadCastUserMessage(session, Action.HTML, message, sessions);
+                break;
+            case BUTTON:
+                sessions = roomManager.getAllSessionInRoom(roomId);
+                sessions.remove(session);
+                messageManager.roomBroadCastUserMessage(session, Action.BUTTON, message, sessions);
         }
     }
 
