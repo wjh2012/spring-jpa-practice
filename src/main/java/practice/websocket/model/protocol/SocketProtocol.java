@@ -25,7 +25,7 @@ public class SocketProtocol {
  *       RoomId,
  *       Message {
  *         EventTarget,
- *         MouseEvent,
+ *         MouseAction,
  *         Message
  *       }
  *     }

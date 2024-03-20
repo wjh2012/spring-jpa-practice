@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import practice.websocket.model.protocol.body.event.EventTarget;
-import practice.websocket.model.protocol.body.event.MouseEvent;
+import practice.websocket.model.protocol.body.event.MouseAction;
 
 @Data
 @NoArgsConstructor
@@ -12,7 +12,7 @@ import practice.websocket.model.protocol.body.event.MouseEvent;
 public class EventMessage {
 
     private EventTarget eventTarget;
-    private MouseEvent mouseEvent;
+    private MouseAction mouseAction;
     private Object detail;
 
 }
