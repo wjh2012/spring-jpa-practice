@@ -5,10 +5,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
-import practice.websocket.model.message.Action;
-import practice.websocket.model.message.SocketBody;
-import practice.websocket.model.message.SocketHeader;
-import practice.websocket.model.message.SocketProtocol;
+import practice.websocket.model.protocol.SocketAction;
+import practice.websocket.model.protocol.SocketBody;
+import practice.websocket.model.protocol.SocketHeader;
+import practice.websocket.model.protocol.SocketProtocol;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,17 +16,17 @@ import java.util.List;
 @Component
 public class MessageManager {
 
-    public void roomBroadCastSystemMessage(String message, List<WebSocketSession> targets) throws JsonProcessingException {
+    public void roomBroadCastSystemMessage(String payload, List<WebSocketSession> targets) throws JsonProcessingException {
         SocketProtocol socketProtocol = new SocketProtocol();
 
         // set header
         SocketHeader socketHeader = new SocketHeader();
-        socketHeader.setAction(Action.SYSTEM);
+        socketHeader.setSocketAction(SocketAction.SYSTEM);
         socketProtocol.setSocketHeader(socketHeader);
 
         // set body
         SocketBody socketBody = new SocketBody();
-        socketBody.setMessage(message);
+        socketBody.setPayload(payload);
         socketProtocol.setSocketBody(socketBody);
 
         // make WebSocketMessage
@@ -44,12 +44,12 @@ public class MessageManager {
         });
     }
 
-    public void roomBroadCastUserMessage(WebSocketSession session, Action action, Object message, List<WebSocketSession> targets) throws JsonProcessingException {
+    public void roomBroadCastUserMessage(WebSocketSession session, SocketAction action, Object payload, List<WebSocketSession> targets) throws JsonProcessingException {
         SocketProtocol socketProtocol = new SocketProtocol();
 
         // set header
         SocketHeader socketHeader = new SocketHeader();
-        socketHeader.setAction(action);
+        socketHeader.setSocketAction(action);
         socketHeader.setSend("server");
         socketHeader.setReceive("client");
         socketProtocol.setSocketHeader(socketHeader);
@@ -57,7 +57,7 @@ public class MessageManager {
         // set body
         SocketBody socketBody = new SocketBody();
         socketBody.setAuthor(session.getId());
-        socketBody.setMessage(message);
+        socketBody.setPayload(payload);
         socketProtocol.setSocketBody(socketBody);
 
         // make WebSocketMessage

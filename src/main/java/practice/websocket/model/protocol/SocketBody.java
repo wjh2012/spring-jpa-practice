@@ -1,4 +1,4 @@
-package practice.websocket.model.message;
+package practice.websocket.model.protocol;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class SocketBody {
     private String author;
     private String roomId;
-    private Object message;
+    private Object payload;
 }

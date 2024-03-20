@@ -1,4 +1,4 @@
-package practice.websocket.model.message;
+package practice.websocket.model.protocol;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SocketHeader {
-    private Action action;
+    private SocketAction socketAction;
     private String send;
     private String receive;
 }

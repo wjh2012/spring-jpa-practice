@@ -7,10 +7,10 @@ import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
-import practice.websocket.model.message.Action;
-import practice.websocket.model.message.SocketBody;
-import practice.websocket.model.message.SocketHeader;
-import practice.websocket.model.message.SocketProtocol;
+import practice.websocket.model.protocol.SocketAction;
+import practice.websocket.model.protocol.SocketHeader;
+import practice.websocket.model.protocol.SocketBody;
+import practice.websocket.model.protocol.SocketProtocol;
 import practice.websocket.service.MessageManager;
 import practice.websocket.service.RoomManager;
 
@@ -54,10 +54,10 @@ public class WebSocketHandler extends TextWebSocketHandler {
         SocketHeader socketHeader = webSocketSocketProtocol.getSocketHeader();
         SocketBody socketBody = webSocketSocketProtocol.getSocketBody();
 
-        Action action = socketHeader.getAction();
+        SocketAction action = socketHeader.getSocketAction();
         String roomId = socketBody.getRoomId();
         String author = socketBody.getAuthor();
-        Object message = socketBody.getMessage();
+        Object payload = socketBody.getPayload();
 
         List<WebSocketSession> sessions;
         switch (action) {
@@ -69,22 +69,8 @@ public class WebSocketHandler extends TextWebSocketHandler {
             case MESSAGE:
                 sessions = roomManager.getAllSessionInRoom(roomId);
                 sessions.remove(session);
-                messageManager.roomBroadCastUserMessage(session, Action.MESSAGE, message, sessions);
+                messageManager.roomBroadCastUserMessage(session, SocketAction.MESSAGE, payload, sessions);
                 break;
-            case SIGN:
-                sessions = roomManager.getAllSessionInRoom(roomId);
-                sessions.remove(session);
-                messageManager.roomBroadCastUserMessage(session, Action.SIGN, message, sessions);
-                break;
-            case HTML:
-                sessions = roomManager.getAllSessionInRoom(roomId);
-                sessions.remove(session);
-                messageManager.roomBroadCastUserMessage(session, Action.HTML, message, sessions);
-                break;
-            case BUTTON:
-                sessions = roomManager.getAllSessionInRoom(roomId);
-                sessions.remove(session);
-                messageManager.roomBroadCastUserMessage(session, Action.BUTTON, message, sessions);
         }
     }
 
