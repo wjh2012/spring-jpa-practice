@@ -9,10 +9,10 @@ import java.io.IOException;
 
 @EnableJpaAuditing
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
-public class JpaPracticeApplication {
+public class SpringPracticeApplication {
 
     public static void main(String[] args) throws IOException {
-        SpringApplication.run(JpaPracticeApplication.class, args);
+        SpringApplication.run(SpringPracticeApplication.class, args);
 
 
     }
