@@ -17,3 +17,7 @@ def querydslSrc = 'src/main/generated'
 tasks.compileJava {
     options.getGeneratedSourceOutputDirectory().set(file(querydslSrc))
 }
+
+clean {
+    delete file(querydslSrc)
+}
