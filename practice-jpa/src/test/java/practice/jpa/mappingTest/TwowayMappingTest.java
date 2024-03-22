@@ -24,6 +24,7 @@ import practice.jpa.mapping.twoway.OneToMany.Twoway_Team_Master;
 @Transactional
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TwowayMappingTest {
+
     @PersistenceContext
     private EntityManager em;
 

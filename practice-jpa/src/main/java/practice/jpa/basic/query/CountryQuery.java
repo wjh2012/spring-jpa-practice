@@ -1,7 +1,6 @@
 package practice.jpa.basic.query;
 
 
-
 import static practice.jpa.basic.entity.country.QCity.city;
 import static practice.jpa.basic.entity.country.QCountry.country;
 

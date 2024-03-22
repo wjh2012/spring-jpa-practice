@@ -22,6 +22,7 @@ import practice.jpa.mapping.twoway.noMaster.Twoway_Team;
 @Transactional
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TwowayNoMasterTest {
+
     @PersistenceContext
     private EntityManager em;
 

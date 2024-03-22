@@ -1,7 +1,6 @@
 package practice.app.hello;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import practice.jpa.basic.entity.country.Country;
 import practice.jpa.basic.service.CountryService;
@@ -11,7 +10,8 @@ import practice.jpa.basic.service.CountryService;
 public class HelloService {
 
     private final CountryService countryService;
-    public void hi(){
+
+    public void hi() {
         Country country = new Country();
         countryService.saveCountry(country);
     }

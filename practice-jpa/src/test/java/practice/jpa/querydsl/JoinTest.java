@@ -26,6 +26,7 @@ import practice.jpa.mapping.twoway.ManyToOne.Twoway_Team_Slave;
 @Transactional
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class JoinTest {
+
     @PersistenceContext
     private EntityManager em;
 
@@ -73,12 +74,13 @@ public class JoinTest {
         QTwoway_Team_Slave team = QTwoway_Team_Slave.twoway_Team_Slave;
 
         List<Twoway_Member_Master> fetch = query
-                .select(member)
-                .from(member)
-                .join(member.team, team)
-                .fetch();
+            .select(member)
+            .from(member)
+            .join(member.team, team)
+            .fetch();
 
-        Map<Twoway_Team_Slave, List<Twoway_Member_Master>> collect = fetch.stream().collect(Collectors.groupingBy(Twoway_Member_Master::getTeam));
+        Map<Twoway_Team_Slave, List<Twoway_Member_Master>> collect = fetch.stream()
+            .collect(Collectors.groupingBy(Twoway_Member_Master::getTeam));
         Assertions.assertThat(collect.size()).isEqualTo(2);
 
     }
