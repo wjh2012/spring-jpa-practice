@@ -7,13 +7,16 @@ tasks.named('jar') {
 }
 
 dependencies {
+
+    // Module dependency
+    runtimeOnly project(":practice-jpa")
+    implementation project(":practice-websocket")
+    implementation project(":practice-domain")
+
     // Web
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
     // Security
     implementation 'org.springframework.boot:spring-boot-starter-security'
 
-    // Project dependency
-    implementation project(":practice-jpa")
-    implementation project(":practice-websocket")
 }
