@@ -1,12 +1,7 @@
-tasks.named('bootJar') {
-    enabled = true
-}
-
-tasks.named('jar') {
-    enabled = false
-}
-
 dependencies {
+    // Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
     implementation project(":practice-jpa")
     implementation project(":practice-websocket")
     implementation project(":practice-security")

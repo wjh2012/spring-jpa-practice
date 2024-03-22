@@ -1,4 +1,5 @@
 dependencies {
+    // JPA
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     // QueryDsl
@@ -6,5 +7,13 @@ dependencies {
     annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jpa"
     annotationProcessor "jakarta.annotation:jakarta.annotation-api"
     annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+
+    // DB
     runtimeOnly 'com.h2database:h2'
+}
+
+def querydslSrc = 'src/main/generated'
+
+tasks.compileJava {
+    options.getGeneratedSourceOutputDirectory().set(file(querydslSrc))
 }
