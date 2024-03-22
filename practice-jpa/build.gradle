@@ -1,6 +1,7 @@
 dependencies {
     // JPA
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    api 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     // QueryDsl
     implementation 'com.querydsl:querydsl-jpa:5.0.0'
@@ -10,14 +11,6 @@ dependencies {
 
     // DB
     runtimeOnly 'com.h2database:h2'
-}
-
-tasks.named('bootJar') {
-    enabled = true
-}
-
-tasks.named('jar') {
-    enabled = false
 }
 
 def querydslSrc = 'src/main/generated'
