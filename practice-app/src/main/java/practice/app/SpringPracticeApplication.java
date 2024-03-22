@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = {
-    "practice.jpa"}, exclude = SecurityAutoConfiguration.class)
+    "practice.jpa", "practice.websocket"}, exclude = SecurityAutoConfiguration.class)
 @EntityScan(basePackages = {"practice.jpa"})
 @EnableJpaRepositories("practice.jpa")
 public class SpringPracticeApplication {
