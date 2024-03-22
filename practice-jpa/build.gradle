@@ -12,6 +12,14 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
 }
 
+tasks.named('bootJar') {
+    enabled = true
+}
+
+tasks.named('jar') {
+    enabled = false
+}
+
 def querydslSrc = 'src/main/generated'
 
 tasks.compileJava {

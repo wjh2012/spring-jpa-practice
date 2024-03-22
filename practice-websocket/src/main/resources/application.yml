@@ -1,0 +1,6 @@
+logging:
+  level:
+    org.springframework:
+      messaging: trace
+      web:
+        socket: trace
