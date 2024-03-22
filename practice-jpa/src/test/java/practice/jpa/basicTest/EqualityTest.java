@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +22,7 @@ import practice.jpa.basic.repository.member.MemberRepository;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @DataJpaTest
 @ContextConfiguration(classes = PracticeJpaApplication.class)
+@Rollback(value = false)
 public class EqualityTest {
 
     @Autowired
