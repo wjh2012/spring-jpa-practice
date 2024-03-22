@@ -1,8 +1,9 @@
 package practice.jpa.basic.query;
 
 
-import static practice.basic.entity.country.QCity.city;
-import static practice.basic.entity.country.QCountry.country;
+
+import static practice.jpa.basic.entity.country.QCity.city;
+import static practice.jpa.basic.entity.country.QCountry.country;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.util.List;
