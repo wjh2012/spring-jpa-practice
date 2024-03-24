@@ -4,7 +4,6 @@ dependencies {
     compileOnly project(":practice-domain")
 
     // JPA
-    // implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     // QueryDsl
