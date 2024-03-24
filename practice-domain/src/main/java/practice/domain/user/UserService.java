@@ -1,12 +1,14 @@
 package practice.domain.user;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
-    private UserReader userReader;
-    private UserWriter userWriter;
+    private final UserReader userReader;
+    private final UserWriter userWriter;
 
     public Long add(String name) {
         return userWriter.add(name);
