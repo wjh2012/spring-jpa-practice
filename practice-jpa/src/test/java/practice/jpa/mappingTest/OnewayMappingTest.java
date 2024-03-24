@@ -12,10 +12,10 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
-import practice.jpa.mapping.oneway.ManyToOne.Oneway_Member_Master;
-import practice.jpa.mapping.oneway.ManyToOne.Oneway_Team_Slave;
-import practice.jpa.mapping.oneway.OneToMany.Oneway_Member_Slave;
-import practice.jpa.mapping.oneway.OneToMany.Oneway_Team_Master;
+import practice.jpa.test.mapping.oneway.ManyToOne.Oneway_Member_Master;
+import practice.jpa.test.mapping.oneway.ManyToOne.Oneway_Team_Slave;
+import practice.jpa.test.mapping.oneway.OneToMany.Oneway_Member_Slave;
+import practice.jpa.test.mapping.oneway.OneToMany.Oneway_Team_Master;
 
 
 @DisplayName("단방향 연관관계 테스트")

@@ -13,10 +13,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import practice.jpa.mapping.twoway.ManyToOne.Twoway_Member_Master;
-import practice.jpa.mapping.twoway.ManyToOne.Twoway_Team_Slave;
-import practice.jpa.mapping.twoway.OneToMany.Twoway_Member_Slave;
-import practice.jpa.mapping.twoway.OneToMany.Twoway_Team_Master;
+import practice.jpa.test.mapping.twoway.ManyToOne.Twoway_Member_Master;
+import practice.jpa.test.mapping.twoway.ManyToOne.Twoway_Team_Slave;
+import practice.jpa.test.mapping.twoway.OneToMany.Twoway_Member_Slave;
+import practice.jpa.test.mapping.twoway.OneToMany.Twoway_Team_Master;
 
 @DisplayName("양방향 연관관계 테스트")
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)

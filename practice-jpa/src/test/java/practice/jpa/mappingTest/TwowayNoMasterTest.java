@@ -13,8 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import practice.jpa.mapping.twoway.noMaster.Twoway_Member;
-import practice.jpa.mapping.twoway.noMaster.Twoway_Team;
+import practice.jpa.test.mapping.twoway.noMaster.Twoway_Member;
+import practice.jpa.test.mapping.twoway.noMaster.Twoway_Team;
 
 @DisplayName("양방향 연관관계 주인없음 테스트")
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)

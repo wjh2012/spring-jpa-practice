@@ -15,10 +15,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import practice.jpa.mapping.twoway.ManyToOne.QTwoway_Member_Master;
-import practice.jpa.mapping.twoway.ManyToOne.QTwoway_Team_Slave;
-import practice.jpa.mapping.twoway.ManyToOne.Twoway_Member_Master;
-import practice.jpa.mapping.twoway.ManyToOne.Twoway_Team_Slave;
+import practice.jpa.test.mapping.twoway.ManyToOne.QTwoway_Member_Master;
+import practice.jpa.test.mapping.twoway.ManyToOne.QTwoway_Team_Slave;
+import practice.jpa.test.mapping.twoway.ManyToOne.Twoway_Member_Master;
+import practice.jpa.test.mapping.twoway.ManyToOne.Twoway_Team_Slave;
 
 @DisplayName("조인 테스트")
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)

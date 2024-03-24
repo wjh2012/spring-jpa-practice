@@ -12,10 +12,10 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 import practice.PracticeJpaApplication;
-import practice.jpa.basic.entity.member.Member;
-import practice.jpa.basic.entity.uuid.UUIDMember;
-import practice.jpa.basic.repository.UUIDMember.UUIDMemberRepository;
-import practice.jpa.basic.repository.member.MemberRepository;
+import practice.jpa.test.basic.entity.member.Member;
+import practice.jpa.test.basic.entity.uuid.UUIDMember;
+import practice.jpa.test.basic.repository.UUIDMember.UUIDMemberRepository;
+import practice.jpa.test.basic.repository.member.MemberRepository;
 
 @DisplayName("JPA 엔티티 동등성 테스트")
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
