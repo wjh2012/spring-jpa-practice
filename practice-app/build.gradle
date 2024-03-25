@@ -12,6 +12,7 @@ dependencies {
     runtimeOnly project(":practice-jpa")
     implementation project(":practice-websocket")
     implementation project(":practice-domain")
+    implementation project(":practice-websocket")
 
     // Web
     implementation 'org.springframework.boot:spring-boot-starter-web'

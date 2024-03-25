@@ -9,6 +9,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EntityScan(basePackages = {"practice.jpa"})
 @EnableJpaRepositories(basePackages = {"practice.jpa"})
-public class MainJpaConfig {
+public class JpaConfig {
 
 }
