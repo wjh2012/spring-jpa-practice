@@ -13,8 +13,7 @@ class UserEntityRepository implements UserRepository {
 
     @Override
     public Long add(String name) {
-        UserEntity userEntity = new UserEntity();
-        return userJpaRepository.save(userEntity).getId();
+        return userJpaRepository.save(new UserEntity(name)).getId();
     }
 
     @Override

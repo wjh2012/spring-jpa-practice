@@ -6,3 +6,6 @@ spring:
     import:
       - application-jpa.yml
       - application-websocket.yml
+logging:
+  level:
+    web: trace
