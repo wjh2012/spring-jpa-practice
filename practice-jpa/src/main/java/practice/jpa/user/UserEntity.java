@@ -10,12 +10,8 @@ import lombok.RequiredArgsConstructor;
 import practice.jpa.BaseEntity;
 
 @Entity
-@RequiredArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
-@Builder
 @Getter
 class UserEntity extends BaseEntity {
-    private String name;
 
+    private String name;
 }
