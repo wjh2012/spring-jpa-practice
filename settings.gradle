@@ -1,6 +1,2 @@
 rootProject.name = 'spring-practice'
 
-include 'practice-app'
-include 'practice-jpa'
-include 'practice-websocket'
-include 'practice-domain'
