@@ -26,23 +26,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
-    implementation 'org.springframework.boot:spring-boot-starter-batch'
-
-    // QueryDsl
-    implementation 'com.querydsl:querydsl-jpa:5.0.0'
-    annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jpa"
-    annotationProcessor "jakarta.annotation:jakarta.annotation-api"
-    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
-
-    // flying-saucer-pdf
-    implementation group: 'org.xhtmlrenderer', name: 'flying-saucer-pdf', version: '9.5.1'
 
     // jsoup
     implementation group: 'org.jsoup', name: 'jsoup', version: '1.17.2'
-
-    // itext
-//    implementation 'com.itextpdf:itext-core:8.0.2'
-//    implementation 'com.itextpdf:bouncy-castle-adapter:8.0.2'
 
     // h2
     runtimeOnly 'com.h2database:h2'
@@ -58,7 +44,6 @@ dependencies {
     // test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
-    testImplementation 'org.springframework.batch:spring-batch-test'
 }
 
 test {
