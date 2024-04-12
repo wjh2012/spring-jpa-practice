@@ -47,31 +47,45 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage textMessage) throws Exception {
-        ObjectMapper mapper = new ObjectMapper();
-        SocketProtocol webSocketSocketProtocol = mapper.readValue(textMessage.getPayload(), SocketProtocol.class);
-        System.out.println(webSocketSocketProtocol.toString());
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            SocketProtocol webSocketSocketProtocol = mapper.readValue(textMessage.getPayload(), SocketProtocol.class);
+            System.out.println(webSocketSocketProtocol.toString());
 
-        SocketHeader socketHeader = webSocketSocketProtocol.getSocketHeader();
-        SocketBody socketBody = webSocketSocketProtocol.getSocketBody();
+            SocketHeader socketHeader = webSocketSocketProtocol.getSocketHeader();
+            SocketBody socketBody = webSocketSocketProtocol.getSocketBody();
 
-        SocketAction action = socketHeader.getSocketAction();
-        String roomId = socketBody.getRoomId();
-        String author = socketBody.getAuthor();
-        Object payload = socketBody.getPayload();
+            SocketAction action = socketHeader.getSocketAction();
+            String roomId = socketBody.getRoomId();
+            String author = socketBody.getAuthor();
+            Object payload = socketBody.getPayload();
 
-        List<WebSocketSession> sessions;
-        switch (action) {
-            case JOIN:
-                roomManager.putSession(session, roomId);
-                sessions = roomManager.getAllSessionInRoom(roomId);
-                messageManager.roomBroadCastSystemMessage(session.getId() + "님이 접속하였습니다.", sessions);
-                break;
-            case MESSAGE:
-                sessions = roomManager.getAllSessionInRoom(roomId);
-                sessions.remove(session);
-                messageManager.roomBroadCastUserMessage(session, SocketAction.MESSAGE, payload, sessions);
-                break;
+            List<WebSocketSession> sessions;
+            switch (action) {
+                case JOIN:
+                    roomManager.putSession(session, roomId);
+                    sessions = roomManager.getAllSessionInRoom(roomId);
+                    messageManager.roomBroadCastSystemMessage(session.getId() + "님이 접속하였습니다.", sessions);
+                    break;
+                case MESSAGE:
+                    sessions = roomManager.getAllSessionInRoom(roomId);
+                    sessions.remove(session);
+                    messageManager.roomBroadCastUserMessage(session, SocketAction.MESSAGE, payload, sessions);
+                    break;
+            }
+        } catch (Exception e) {
+            System.out.println(textMessage);
+            CLIENTS.values().forEach(client -> {
+                if (!client.equals(session)) {
+                    try {
+                        client.sendMessage(textMessage);
+                    } catch (Exception ee) {
+                        System.out.println("no");
+                    }
+                }
+            });
         }
+
     }
 
 }
