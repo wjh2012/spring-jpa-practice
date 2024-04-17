@@ -17,14 +17,14 @@ import java.nio.file.Paths;
 @RestController
 public class UpDownController {
 
-    private static final String USER_NAME = "WONJANGHO";
-//    private static final String USER_NAME = "wjh20";
+    private static final String FILE_PATH = "/Users/WONJANGHO/Desktop/test/";
+//    private static final String FILE_PATH = "/Users/wjh20/Desktop/test/";
 
     @PostMapping("/upload")
     public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) {
         String fileName = file.getOriginalFilename();
         try {
-            Path path = Paths.get("/Users/"+USER_NAME+"/Desktop/test/" + fileName);
+            Path path = Paths.get(FILE_PATH + fileName);
             file.transferTo(path);
             return ResponseEntity.status(HttpStatus.OK).build();
         } catch (Exception e) {
@@ -35,11 +35,11 @@ public class UpDownController {
     @GetMapping("/download/{filename:.+}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String filename) {
         try {
-            Path filePath = Paths.get("/Users/"+USER_NAME+"/Desktop/test/" + filename);
+            Path filePath = Paths.get(FILE_PATH + filename);
             Resource resource = new UrlResource(filePath.toUri());
             if (resource.exists() || resource.isReadable()) {
                 return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
                     .contentType(MediaType.APPLICATION_OCTET_STREAM)
                     .body(resource);
             } else {
