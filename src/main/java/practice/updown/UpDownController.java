@@ -17,8 +17,8 @@ import java.nio.file.Paths;
 @RestController
 public class UpDownController {
 
-    private static final String FILE_PATH = "/Users/WONJANGHO/Desktop/test/";
-//    private static final String FILE_PATH = "/Users/wjh20/Desktop/test/";
+    //    private static final String FILE_PATH = "/Users/WONJANGHO/Desktop/test/";
+    private static final String FILE_PATH = "/Users/wjh20/Desktop/test/";
 
     @PostMapping("/upload")
     public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) {
@@ -39,7 +39,8 @@ public class UpDownController {
             Resource resource = new UrlResource(filePath.toUri());
             if (resource.exists() || resource.isReadable()) {
                 return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
+                    .header(HttpHeaders.CONTENT_DISPOSITION,
+                        "inline; filename=\"" + resource.getFilename() + "\"")
                     .contentType(MediaType.APPLICATION_OCTET_STREAM)
                     .body(resource);
             } else {
