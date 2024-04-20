@@ -59,10 +59,27 @@ public class DniHtmlMockController {
         private String eFormVerNo;
     }
 
-    @GetMapping("/download/{filename}")
-    public ResponseEntity<Resource> downloadFile(@PathVariable String filename) {
+    @GetMapping("/viewer/download/html/{filename}")
+    public ResponseEntity<Resource> downloadHtmlFile(@PathVariable String filename) {
         try {
-            Path filePath = Paths.get(FILE_PATH + filename);
+            Path filePath = Paths.get(FILE_PATH + filename + ".html");
+            Resource resource = new UrlResource(filePath.toUri());
+            if (resource.exists() || resource.isReadable()) {
+                return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
+                        "inline; filename=\"" + resource.getFilename() + "\"")
+                    .contentType(MediaType.APPLICATION_OCTET_STREAM).body(resource);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @GetMapping("/viewer/download/json/{filename}")
+    public ResponseEntity<Resource> downloadJsonFile(@PathVariable String filename) {
+        try {
+            Path filePath = Paths.get(FILE_PATH + filename + ".json");
             Resource resource = new UrlResource(filePath.toUri());
             if (resource.exists() || resource.isReadable()) {
                 return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
