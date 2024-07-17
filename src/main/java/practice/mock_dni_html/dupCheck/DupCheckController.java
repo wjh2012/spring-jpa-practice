@@ -1,4 +1,4 @@
-package practice.mock.dupCheck;
+package practice.mock_dni_html.dupCheck;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

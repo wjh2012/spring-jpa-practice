@@ -1,4 +1,4 @@
-package practice.mock.dnihtml;
+package practice.mock_dni_html.dnihtml;
 
 import java.io.IOException;
 import java.nio.file.Path;

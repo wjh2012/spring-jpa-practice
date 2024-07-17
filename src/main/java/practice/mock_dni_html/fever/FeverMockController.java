@@ -1,4 +1,4 @@
-package practice.mock.fever;
+package practice.mock_dni_html.fever;
 
 import java.util.ArrayList;
 import java.util.Arrays;

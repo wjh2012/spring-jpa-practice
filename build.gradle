@@ -30,6 +30,10 @@ dependencies {
     // jsoup
     implementation group: 'org.jsoup', name: 'jsoup', version: '1.17.2'
 
+    // kafka
+    implementation 'org.springframework.kafka:spring-kafka'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+
     // h2
     runtimeOnly 'com.h2database:h2'
 
