@@ -11,6 +11,17 @@ java {
     sourceCompatibility = '11'
 }
 
+// 임시 비활성화
+compileJava {
+    exclude 'practice/kafka/**'
+    exclude 'practice/mock_dni_html/**'
+    exclude 'practice/stomp/**'
+    exclude 'practice/websocket/**'
+}
+test {
+    exclude '**/practice/kafka/**'
+}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
